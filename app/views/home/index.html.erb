@@ -1,1 +1,11 @@
-<p>Welcome</p>
+<% if signed_in? %>
+  <%= link_to 'Sign out', sign_out_path, method: :delete %>
+
+  <br />
+  <%= image_tag current_user.avatar_url, width: 20 %> 
+  <%= current_user.name %><%= github_link_to current_user %>
+  <br />
+  <%= current_user.bio %>
+<% else %>
+  <%= link_to 'Sign in with GitHub', '/auth/github' %>
+<% end %>
