@@ -13,12 +13,8 @@ class SessionsController < ApplicationController
 
   def authenticate_user(auth_params)
     user = User.find_or_create_by(github_uid: auth_params.uid)
-    user.update!(
-      name: auth_params.extra.raw_info.name,
-      nickname: auth_params.extra.raw_info.login,
-      avatar_url: auth_params.extra.raw_info.avatar_url,
-      bio: auth_params.extra.raw_info.bio
-    )
+    raw_info = auth_params.extra.raw_info
+    user.update!(name: raw_info.name, nickname: raw_info.login, avatar_url: raw_info.avatar_url, bio: raw_info.bio)
     user
   end
 end

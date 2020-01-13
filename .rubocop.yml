@@ -1,0 +1,39 @@
+AllCops:
+  TargetRubyVersion: 2.7.0
+
+  Exclude:
+    - bin/**/*
+    - db/schema.rb
+    - node_modules/**/*
+
+  DisplayCopNames: true
+
+Layout/LineLength:
+  Max: 128
+
+Style/BlockComments:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*rb'
+    - 'config/routes.rb'
+    - 'db/migrate/*'
+    - 'spec/**/*'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*'
