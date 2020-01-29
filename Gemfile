@@ -17,6 +17,8 @@ gem 'omniauth-github'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -25,6 +27,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
