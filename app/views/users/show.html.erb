@@ -1,0 +1,6 @@
+<% if @user.avatar_url.present? %>
+  <%= image_tag @user.avatar_url, width: 20 %>
+<% end %>
+<%= @user.name %><%= github_link_to @user %>
+<br />
+<%= @user.bio %>
