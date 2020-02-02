@@ -30,6 +30,8 @@
 yarn-debug.log*
 .yarn-integrity
 
+/config/database.yml
+
 .generators
 .idea/
 .rakeTasks
