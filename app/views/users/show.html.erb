@@ -4,3 +4,6 @@
 <%= @user.name %><%= github_link_to @user %>
 <br />
 <%= @user.bio %>
+
+<%= link_to "#{@user.followees.count} フォロー中", user_followees_path(@user.nickname) %>
+<%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user.nickname) %>
