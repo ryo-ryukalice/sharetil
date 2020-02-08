@@ -1,0 +1,10 @@
+<li>
+  <% if user.avatar_url.present? %>
+    <%= image_tag user.avatar_url, width: 20 %>
+  <% end %>
+  <%= link_to user.name, user_path(user.nickname) %>
+  <br />
+  <%= github_link_to user %>
+  <br />
+  <%= user.bio %>
+</li>
