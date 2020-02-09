@@ -68,7 +68,7 @@ RSpec.configure do |config|
     'extra' => {
       'raw_info' => {
         'name' => 'Ogihara Ryo',
-        'nickname' => 'ogihara-ryo',
+        'login' => 'ogihara-ryo',
         'avatar_url' => 'https://avatars2.githubusercontent.com/u/11517870?v=4',
         'bio' => 'bio'
       }
