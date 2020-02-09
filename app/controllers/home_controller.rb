@@ -2,7 +2,7 @@ require 'net/https'
 
 class HomeController < ApplicationController
   def index
-    @posts = 10.times.map {
+    @posts = 10.times.map do
       {
         user: current_user,
         posted_at: '10分前',
@@ -10,7 +10,7 @@ class HomeController < ApplicationController
         url: 'https://github.com/ogihara-ryo/til_test/blob/master/ruby/test.md',
         raw: raw
       }
-    }
+    end
   end
 
   private
