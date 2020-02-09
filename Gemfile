@@ -15,6 +15,9 @@ gem 'webpacker', '~> 4.0'
 
 gem 'omniauth-github'
 
+gem 'coderay'
+gem 'redcarpet'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 

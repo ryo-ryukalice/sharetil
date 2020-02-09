@@ -1,0 +1,21 @@
+<ul class="posts">
+  <% @posts.each do |post| %>
+    <li class="post">
+      <div>
+        <%= image_tag post[:user].avatar_url, class: 'avatar' %>
+      </div>
+
+      <div class="til">
+        <%= link_to post[:user].name, user_path(post[:user].nickname), class: 'name' %>
+        <%= github_link_to post[:user] %>
+        <time class="posted_at"><%= post[:posted_at] %></time>
+        <br />
+
+        <%= link_to post[:url], post[:url], class: 'url', target: '_blank' %>
+        <pre class="raw">
+          <%== markdown_to_html(post[:raw].force_encoding("UTF-8")) %>
+        </pre>
+      </div>
+    </li>
+  <% end %>
+</ul>

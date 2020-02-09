@@ -1,0 +1,130 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$max-width: 960px;
+
+$background-color: #172432;
+$code-background-color: #202020;
+$font-color: #fafafa;
+$nickname-font-color: #758796;
+$border-color: #2b343c;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: $font-color;
+  font-family: Arial,”ヒラギノ角ゴ Pro W3″,”Hiragino Kaku Gothic Pro”,Osaka,”メイリオ”,Meiryo,”ＭＳ Ｐゴシック”,”MS PGothic”,sans-serif;
+  font-size: 1.8rem;
+  background-color: $background-color;
+}
+
+header {
+  margin: 0 auto;
+  padding: 2.4rem 1.2rem;
+  max-width: $max-width;
+
+  display: flex;
+  justify-content: flex-end;
+  >:first-child { margin-right: auto; }
+  align-items: center;
+
+  h1 { font-size: 3.2rem; }
+  i {
+    margin-left: 24px;
+    font-size: 2.8rem;
+  }
+}
+
+article {
+  margin: 0 auto;
+  padding: 1.2rem;
+  max-width: $max-width;
+}
+
+a {
+  color: $font-color;
+  text-decoration: none;
+
+  &:hover { text-decoration: underline; }
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 4.2rem;
+}
+
+.nickname {
+  color: $nickname-font-color;
+  font-size: 1.6rem;
+}
+
+.posted_at {
+  color: $nickname-font-color;
+  font-size: 1.6rem;
+  margin-left: 1.2rem;
+}
+
+.post {
+  list-style: none;
+  border: solid 0.1rem $border-color;
+  padding: 3.2rem 2rem;
+
+  display: flex;
+  flex-direction: row;
+
+  .til {
+    margin-left: 1.2rem;
+    width: 100%;
+  }
+
+  .url {
+    display: block;
+    padding-top: 2.4rem;
+  }
+}
+
+.raw {
+  border: solid 0.1rem $border-color;
+  background-color: $code-background-color;
+  margin-top: 2.4rem;
+  padding: 1.2rem 2.4rem 0 2.4rem;
+  font-size: 2.0rem;
+
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2.7rem; }
+  h3 { font-size: 2.6rem; }
+  h4 { font-size: 2.5rem; }
+
+  li {
+    margin-left: 2.0rem;
+  }
+
+  th, td {
+    border: solid 1px;
+    padding: 1rem;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  pre {
+    font-family: Consolas, "Courier New", Courier, Monaco, monospace, "ＭＳ ゴシック", "MS Gothic", Osaka−等幅;
+    line-height: 1.5;
+  }
+}
