@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sharetil</title>
+    <title>Share TIL</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/083fc4e90f.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1><%= link_to 'Share TIL', root_path %></h1>
+      <%= link_to '#' do %><i class="fas fa-plus-circle"></i><% end %>
+      <%= link_to '#' do %><i class="fas fa-bell"></i><% end %>
+    </header>
+
+    <article>
+      <%= yield %>
+    </article>
   </body>
 </html>
