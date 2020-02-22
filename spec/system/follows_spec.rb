@@ -5,23 +5,23 @@ RSpec.describe 'Follows', type: :system do
     driven_by(:rack_test)
   end
 
-  let(:user1) { create(:user) }
-  # let(:user2) { create(:user) }
+  let(:user) { create(:user) }
 
   describe 'フォローボタンのテスト' do
     before do
       sign_in
-      visit user_path(user1.nickname)
+      visit user_path(user.nickname)
+    end
+    let(:follow_button_text) { 'フォローする' }
+    let(:unfollow_button_text) { 'フォロー解除' }
+
+    example 'フォロー出来ること' do
+      expect { click_on follow_button_text }.to change { user.followers.count }.from(0).to(1)
     end
 
-    it 'フォロー出来ること' do
-      expect { find('.btn-primary').click }.to change { user1.followers.count }.from(0).to(1)
-    end
-
-    it 'フォロー解除できること' do
-      find('.btn-primary').click
-      visit user_path(user1.nickname)
-      expect { find('.btn-primary').click }.to change { user1.followers.count }.from(1).to(0)
+    example 'フォロー解除できること' do
+      click_on follow_button_text
+      expect { click_on unfollow_button_text }.to change { user.followers.count }.from(1).to(0)
     end
   end
 end
