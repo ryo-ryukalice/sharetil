@@ -7,3 +7,15 @@
 
 <%= link_to "#{@user.followees.count} フォロー中", user_followees_path(@user.nickname) %>
 <%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user.nickname) %>
+<% if signed_in?%>
+  <% if current_user.following?(@user) %>
+    <%= form_for(current_user.followee_follows.find_by(followee_id: @user.id), url: follow_path(@user.id), method: :delete) do |f| %>
+      <%= f.submit 'フォロー解除',class: 'btn btn-primary' %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.followee_follows.build, url: follow_index_path, method: :post) do |f| %>
+      <div><%= hidden_field_tag :followee_id, @user.id %></div>
+      <%= f.submit 'フォローする',class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+<% end %>

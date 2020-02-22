@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :followees, only: :index
     resources :followers, only: :index
   end
+
+  resources :follow, only: %i[create destroy]
 end
