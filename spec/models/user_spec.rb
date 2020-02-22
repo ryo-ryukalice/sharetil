@@ -14,5 +14,31 @@ RSpec.describe User, type: :model do
       user1.followers << user2
       expect(user2.followees).to include user1
     end
+
+    describe 'model内のフォロー関連メソッド' do
+      subject { user1.following?(user2) }
+
+      describe 'following?が機能していること' do
+        example 'trueを返す' do
+          user1.followees << user2
+          is_expected.to eq true
+        end
+
+        example 'falseを返す' do
+          is_expected.to eq false
+        end
+      end
+
+      example 'followが機能していること' do
+        user1.follow(user2)
+        is_expected.to eq true
+      end
+
+      example 'unfollowが機能していること' do
+        user1.follow(user2)
+        user1.unfollow(user2)
+        is_expected.to eq false
+      end
+    end
   end
 end
