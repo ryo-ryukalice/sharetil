@@ -6,14 +6,14 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_follows, source: :follower
 
   def follow(other_user)
-    followees << other_user
+    followees << other_user unless following?(other_user)
   end
 
   def unfollow(other_user)
-    followee_follows.find_by(followee_id: other_user.id).destroy!
+    followee_follows.find_by(followee_id: other_user.id).destroy! if following?(other_user)
   end
 
-  def following?(other)
-    followees.include?(other)
+  def following?(other_user)
+    followees.include?(other_user)
   end
 end
