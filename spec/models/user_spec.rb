@@ -29,9 +29,16 @@ RSpec.describe User, type: :model do
         end
       end
 
-      example 'followが機能していること' do
-        user1.follow(user2)
-        is_expected.to eq true
+      describe 'followが機能していること' do
+        example 'フォロー出来ること' do
+          user1.follow(user2)
+          is_expected.to eq true
+        end
+
+        example '自分自身はフォローできないこと' do
+          user1.follow(user1)
+          expect(user1.following?(user1)).to eq false
+        end
       end
 
       example 'unfollowが機能していること' do

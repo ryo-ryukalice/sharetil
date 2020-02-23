@@ -1,4 +1,4 @@
-<% if signed_in?%>
+<% if signed_in? && current_user != user %>
   <% if current_user.following?(user) %>
     <%= form_with url: user_followee_path(id: user.id, user_nickname: user.nickname), method: :delete, remote: true do |f| %>
       <%= f.submit 'フォロー解除',class: 'btn btn-primary' %>
