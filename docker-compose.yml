@@ -1,0 +1,29 @@
+version: '3'
+volumes:
+  bundle:
+  psql-data:
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000 # rails server
+      - 3035:3035 # webpack-dev-server
+    volumes:
+      - bundle:/usr/local/bundle:cached
+      - .:/app:delegated
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+    stdin_open: true
+    tty: true
+    command: /bin/sh docker-start.sh
+
+  db:
+    image: postgres:12
+    ports:
+      - 5432:5432
+    volumes:
+    - psql-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
