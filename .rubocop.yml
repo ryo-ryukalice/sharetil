@@ -4,6 +4,7 @@ AllCops:
   Exclude:
     - bin/**/*
     - db/schema.rb
+    - vendor/**/*
     - node_modules/**/*
 
   DisplayCopNames: true
