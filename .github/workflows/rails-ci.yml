@@ -20,6 +20,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
+      - name: Set up Ruby 2.7
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.0
+
       - name: Cache gems
         uses: actions/cache@v1
         with:
@@ -27,10 +32,17 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: ${{ runner.os }}-gems-
 
-      - name: Set up Ruby 2.7
-        uses: actions/setup-ruby@v1
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+  
+      - name: Cache JavaScript modules
+        uses: actions/cache@v1
+        id: yarn-cache
         with:
-          ruby-version: 2.7.0
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-yarn-
 
       - uses: borales/actions-yarn@v2.0.0
         with:
