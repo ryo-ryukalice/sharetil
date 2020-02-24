@@ -71,7 +71,7 @@ jobs:
           POSTGRES_PASSWORD: postgres
 
       - name: Rubocop
-        run: bundle exec rubocop
+        run: bundle exec rubocop -c .rubocop.yml
 
       - name: RSpec
         run: COVERAGE=true bundle exec rspec  --require rails_helper
