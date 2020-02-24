@@ -7,6 +7,4 @@
 
 <%= link_to "#{@user.followees.count} フォロー中", user_followees_path(@user.nickname), class: 'followees_count' %>
 <%= link_to "#{@user.followers.count} フォロワー", user_followers_path(@user.nickname), class: 'followers_count' %>
-<div class='follow_form'>
-  <%= render 'shared/follow_form', user: @user %>
-</div>
+<%= render 'shared/follow_form', user: @user %>

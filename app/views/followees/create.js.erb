@@ -1,2 +1,2 @@
-$(".follow_form").html("<%= escape_javascript(render('shared/follow_form', user: @user)) %>");
+$(".follow_form_<%= @user.id %>").html("<%= escape_javascript(render('shared/follow_form', user: @user)) %>");
 $(".followers_count").html('<%= "#{@user.followers.count} フォロワー" %>');

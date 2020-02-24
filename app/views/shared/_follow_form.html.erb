@@ -1,11 +1,13 @@
-<% if signed_in? && current_user != user %>
-  <% if current_user.following?(user) %>
-    <%= form_with url: user_followee_path(id: user.id, user_nickname: user.nickname), method: :delete, remote: true do |f| %>
-      <%= f.submit 'フォロー解除',class: 'btn btn-primary' %>
-    <% end %>
-  <% else %>
-    <%= form_with url: user_followees_path(user.nickname), remote: true do |f| %>
-      <%= f.submit 'フォローする',class: 'btn btn-primary' %>
+<div class='follow_form_<%= user.id %>'>
+  <% if signed_in? && current_user != user %>
+    <% if current_user.following?(user) %>
+      <%= form_with url: user_followee_path(id: user.id, user_nickname: user.nickname), method: :delete, remote: true do |f| %>
+        <%= f.submit 'フォロー解除',class: 'btn btn-primary' %>
+      <% end %>
+    <% else %>
+      <%= form_with url: user_followees_path(user.nickname), remote: true do |f| %>
+        <%= f.submit 'フォローする',class: 'btn btn-primary' %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>

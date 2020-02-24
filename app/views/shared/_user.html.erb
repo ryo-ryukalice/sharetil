@@ -3,9 +3,8 @@
     <%= image_tag user.avatar_url, width: 20 %>
   <% end %>
   <%= link_to user.name, user_path(user.nickname) %>
-  <div class='follow_form'>
-    <%= render 'shared/follow_form', user: user %>
-  </div>
+  <br />
+  <%= render 'shared/follow_form', user: user %>
   <br />
   <%= github_link_to user %>
   <br />
