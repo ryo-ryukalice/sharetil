@@ -4,6 +4,8 @@
   <% end %>
   <%= link_to user.name, user_path(user.nickname) %>
   <br />
+  <%= render 'shared/follow_form', user: user %>
+  <br />
   <%= github_link_to user %>
   <br />
   <%= user.bio %>

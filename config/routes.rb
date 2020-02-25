@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete 'sign_out', to: 'sessions#destroy'
 
   resources :users, path: '/', only: :show, param: :nickname do
-    resources :followees, only: :index
+    resources :followees, only: %i[index create destroy]
     resources :followers, only: :index
   end
 end
