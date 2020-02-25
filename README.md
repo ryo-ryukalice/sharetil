@@ -1,24 +1,18 @@
-# README
+# sharetil
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 環境構築(docker)
 
-Things you may want to cover:
+```
+$ docker-compose build
+$ docker-compose up
 
-* Ruby version
+# DBのセットアップ
+$ docker-compose exec app bash -c "rails db:create && rails db:migrate && rails db:seed"  
 
-* System dependencies
+# ブラウザでアクセス
+http://localhost:3000
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# rails consoleやrspecを実行したい場合、appコンテナの中に入る
+$ docker-compose exec app bash
+$ rails c
+```
