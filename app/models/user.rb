@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_follows, source: :follower
 
   def follow(other_user)
-    return false if self == other_user
+    return if self == other_user
 
     followees << other_user unless following?(other_user)
   end
