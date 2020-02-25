@@ -11,6 +11,16 @@ services:
     volumes:
       - bundle:/usr/local/bundle:cached
       - .:/app:delegated
+      # ホスト <-> ゲスト間で同期する必要がないファイルを明示的に指定し、同期速度を上げる
+      - /app/.git
+      - /app/.github
+      - /app/log
+      - /app/node_modules
+      - /app/public/packs
+      - /app/public/packs-test
+      - /app/public/assets
+      - /app/tmp
+      - /app/vendor
     environment:
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
